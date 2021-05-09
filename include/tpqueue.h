@@ -21,19 +21,15 @@ class TPQueue {
 };
 template<typename T>
 TQueue<T>::TQueue() :
-    size(100), 
-    begin(0), end(0), count(0)
-{
+    size(100), begin(0), end(0), count(0) {
     arr = new T[size + 1];
 }
 template<typename T>
-TQueue<T>::~TQueue()
-{
+TQueue<T>::~TQueue() {
   delete [] arr;
 }
 template<typename T>
-void TQueue<T>::push(const T & item)
-{
+void TQueue<T>::push(const T & item) {
   // проверяем, ести ли свободное место в очереди
   assert( count < size );
   if (end != 0) {
@@ -57,8 +53,7 @@ void TQueue<T>::push(const T & item)
   end++;
 }
 template<typename T>
-T TQueue<T>::pop()
-{
+T TQueue<T>::pop() {
   // проверяем, есть ли в очереди элементы
   assert(count > 0);
   T item = arr[begin++];
@@ -70,20 +65,17 @@ T TQueue<T>::pop()
   return item;
 }
 template<typename T>
-T TQueue<T>::get() const
-{
+T TQueue<T>::get() const {
   // проверяем, есть ли в очереди элементы
   assert(count > 0);
   return arr[begin];
 }
 template<typename T>
-bool TQueue<T>::isEmpty() const
-{
+bool TQueue<T>::isEmpty() const {
   return count == 0;
 }
 template<typename T>
-bool TQueue<T>::isFull() const
-{
+bool TQueue<T>::isFull() const {
   return count == size;
 }
 struct SYM {
